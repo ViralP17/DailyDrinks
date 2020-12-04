@@ -3,14 +3,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AppNavbar from './components/AppNavbar';
 import { Provider } from 'react-redux';
 import store from './store';
-import Main from './components/main';
+import OrderList from './components/OrderList';
+import AddOrder from './components/AddOrder';
+import EditOrder from './components/EditOrder';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
 
-
-function App() {
+const App = () => {
   return (
     <Provider store={store}>
        <AppNavbar/>
-       <Main/>
+       <Router>
+        <Switch>
+          <Route exact path="/" component={OrderList} />
+          <Route exact path="/add" component={AddOrder} />
+          <Route exact path="/edit/:id" component={EditOrder} />
+        </Switch>
+      </Router>
     </Provider>
   );
 }
