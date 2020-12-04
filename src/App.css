@@ -1,38 +1,220 @@
-.App {
-  text-align: center;
+
+
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #cddfe2;
+}
+html .btn {
+  border: 0;
+  background-color:#3a9752;
+  font-family: inherit;
+  font-size: 18px;
+  padding: 8px 18px;
+  cursor: pointer;
+}
+html .btn:focus {
+  outline: none;
+}
+html .btn:hover {
+  color: #06171b !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* Navbar */
+* {
+  box-sizing: border-box;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+  margin: 0px;
+  font-family: 'segoe ui';
+}
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #353535;
+  position: relative;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.order-detail label {
+  font-size: 20px;
+}
+.order-detail input, .order-detail textarea {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 7px;
+  font-size: 15px;
+  color: inherit;
+}
+.order-detail input:focus, .order-detail textarea:focus {
+  outline: none;
+  border: 2px #8ece5c solid;
+}
+.order-detail .button-group {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-end;
+  padding: 7px;
+}
+.order-detail .button-group .ok {
+  color: #ffffff;
+  background-color: #3a9752;
+}
+.order-detail .button-group .ok:hover {
+  background-color: #8ece5c;
+}
+.order-detail .button-group .cancel {
+  color: #f8f6f6;
+  background-color: #768079;
+  padding: 7px;
+  margin-left: 10px;
+}
+.order-detail .button-group .cancel:hover {
+  background-color: #ce4659;
 }
 
-.App-link {
-  color: #61dafb;
+/* Add Order Button */
+
+.new-order-btn {
+  float: right;
+  color: #ffffff;  
+}
+.new-order-btn:hover {
+  background-color: #8ece5c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+/* Order Table List */
+
+.OrderTable {
+  width: 100%;
+  table-layout: fixed;
   }
-  to {
-    transform: rotate(360deg);
+  .OrderTable .order-id {
+  max-width: 10%;
+  width: 10%;
   }
-}
+  
+  .OrderTable .order-name {
+  max-width: 30%;
+  width: 30%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  }
+  .OrderTable .order-price {
+  max-width: 10%;
+  width: 10%;
+  }
+
+  .OrderTable .order-notes {
+    max-width: 30%;
+    width: 30%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    }
+
+    .OrderTable .order-action {
+      max-width: 20%;
+      width: 20%;
+    }
+    .OrderTable .fa {
+       cursor: pointer;
+      }
+
+    .OrderTable .no-record{
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 auto;
+      max-width: 130px;
+      padding: 8px;
+      text-align: center;
+  }
