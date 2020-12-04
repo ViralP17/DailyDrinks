@@ -40,11 +40,6 @@ import {
 
           return { ...state, orders: [...state.orders] }
       }
-      case ORDERS_LOADING:
-        return {
-          ...state,
-          loading: true
-        };
       default:
         return state;
     }
